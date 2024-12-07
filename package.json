@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@opensearch-project/opensearch": "^2.13.0",
+    "hangul-js": "^0.2.6",
+    "mecab-ko": "^0.4.1",
+    "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.7.2"
   }
 }
