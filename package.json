@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@opensearch-project/opensearch": "^2.13.0",
-    "hangul-js": "^0.2.6",
-    "mecab-ko": "^0.4.1",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
