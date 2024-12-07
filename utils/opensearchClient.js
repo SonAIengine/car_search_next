@@ -6,10 +6,10 @@ if (!process.env.OPENSEARCH_NODE_URL) {
 }
 
 const client = new Client({
-    node: '192.168.219.100:9200', // 필수 옵션
+    node: process.env.OPENSEARCH_NODE_URL || 'http://opensearch.infoedu.co.kr:1006', // 필수 옵션
     auth: {
-        username: 'admin', // 선택 사항
-        password: 'IWantKillRed2689!', // 선택 사항
+        username: process.env.OPENSEARCH_USERNAME || 'admin', // 선택 사항
+        password: process.env.OPENSEARCH_PASSWORD || 'IWantKillRed2689!', // 선택 사항
     },
 });
 
