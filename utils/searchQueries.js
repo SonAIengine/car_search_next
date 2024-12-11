@@ -15,6 +15,7 @@ const buildProductSearchQuery = (searchTerm) => {
   const textTerms = terms.filter(word => !/^\d+$/.test(word));  // 숫자가 아닌 것
 
   // 숫자에 낮은 점수 적용
+  const termsLikePattern = buildLikePattern(terms.join(' '));
   const numericLikePattern = buildLikePattern(numericTerms.join(' '));
   const textLikePattern = buildLikePattern(textTerms.join(' '));
 
@@ -30,14 +31,21 @@ const buildProductSearchQuery = (searchTerm) => {
                   query_string: {
                     query: textLikePattern, // 텍스트 검색
                     fields: ['car_info'],
-                    boost: 10 // 텍스트에 높은 점수
+                    boost: 15 // 텍스트에 높은 점수
                   }
                 },
                 {
                   query_string: {
                     query: numericLikePattern, // 숫자 검색
-                    fields: ['car_info'],
+                    fields: ['car_info', 'year'],
                     boost: 2 // 숫자에 낮은 점수
+                  }
+                },
+                {
+                  query_string: {
+                    query: termsLikePattern, // 가격
+                    fields: ['price'],
+                    boost: 5
                   }
                 }
               ],
@@ -52,7 +60,7 @@ const buildProductSearchQuery = (searchTerm) => {
               weight: 0.5, // 숫자에 낮은 가중치
               filter: {
                 query_string: {
-                  query: numericLikePattern,
+                  query: terms,
                   fields: ['car_info']
                 }
               }
