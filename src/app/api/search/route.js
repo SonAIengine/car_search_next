@@ -1,7 +1,7 @@
 // app/api/search/route.js
 import { NextResponse } from 'next/server';
 import client from '@/utils/opensearchClient';
-import buildProductSearchQuery from '@/utils/searchQueries';  // default import로 수정
+import buildProductSearchQuery from '@/utils/searchQueries';
 
 export async function GET(request) {
     try {

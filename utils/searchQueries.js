@@ -37,7 +37,6 @@ const buildProductSearchQuery = (searchTerm) => {
   const textLikePattern = buildLikePattern(textTerms.join(' '));
 
   return {
-    index: 'carku_goods',
     body: {
       query: {
         function_score: {
